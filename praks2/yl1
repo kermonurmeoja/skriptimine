@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Skript valjastab tervituse 'Tere, Kasutajanimi!', kus kasutajanimi algab suure t2hega.
+
+username=$USER
+echo "Tere, ${username^}!"
