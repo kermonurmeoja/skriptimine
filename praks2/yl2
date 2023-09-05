@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Skript valjastab mu saavutused antud aines.
+
+echo "Kermo Nurmeoja"
+echo "ITS21"
+echo "Haldustegevuste automatiseerimine tundub senini vajalik aine."
+echo "Oskan koostada v2ga lihtsaid skripte."
