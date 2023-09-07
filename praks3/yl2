@@ -1,0 +1,19 @@
+#!/bin/bash
+#Skript, mis otsib VAR kataloogis .log lõpuga failid, kontrollib, mitu rida on ning väljastab nimekirja kahanevas järjekorras vastavalt ridade arvule.
+
+failid=( $( find "/var/" -type f -name "*.log" ) )
+declare -A mahud
+
+# Loeb listi failid ja nende mahud sisse
+for fail in "${failid[@]}"; do
+  maht=$(wc -l < "$fail")
+  mahud["$fail"]=$maht
+done
+
+# Sorteerib failid ridade arvu järgi kahanevas järjekorras
+sort -k2,2nr <<< "$(for fail in "${!mahud[@]}"; do echo "$fail ${mahud[$fail]}"; done)"
+
+# Väljastab failide nimed kahanevas järjekorras
+for fail in "${!mahud[@]}"; do
+  echo "$fail"
+done
