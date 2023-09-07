@@ -1,0 +1,6 @@
+#!/bin/bash
+# Skript väljastab mitu päeva masin on töös olnud.
+
+time=`uptime | awk '{print $1,$2,$3,$4}'`
+echo -n $(hostname) ""
+echo ${time:0:-1}
