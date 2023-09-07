@@ -1,0 +1,16 @@
+#!/bin/bash
+#Skript v2ljastab kasutajale kuup2eva ja ajaga seotud info.
+
+#Kuup2ev ja kellaaeg
+today=`date +'%A, %B %d, %Y'`
+time=`date +"%H:%M"`
+
+echo
+echo "Today is $today"
+echo "Time is $time"
+echo
+
+#kalender
+month=`date +'%B %Y'`
+echo  "Calendar of $month"
+cal | tail -7
