@@ -1,0 +1,20 @@
+#!/bin/bash
+# Skript kysib ainepunktide arvu ja n2dalate arvu, arvutab ja v2ljastab ekraanile yhe n2dala eeldatava ajakulu.
+echo
+
+# Kysib kasutajalt sisendit.
+read -p "Sisesta ainepunktide arv EKAPites: " maht
+read -p "Sisesta nadalate arv: " kestus
+
+# Teisendab ainepunktid tundideks. (1 EKAP = 26 h)
+maht=$((maht * 26))
+
+# Arvutab v2lja yhe n2dala eeldatava ajakulu.
+aeg=`echo "scale=1;$maht/$kestus" | bc`
+
+# Ymardab arvu t2isarvuks.
+ymarda="`echo "($aeg+0.9)/1" | bc`"
+
+# V2ljastab n2dalase ajakulu.
+echo "Eeldatav nadalane ajakulu:" $ymarda "tundi."
+echo
