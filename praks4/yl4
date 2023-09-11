@@ -1,0 +1,24 @@
+#!/bin/bash
+# Skript kysib sisendit, mitu reisijat on kokku ja mitu kohta on bussis. Tulemusena v2ljastatakse, mitu on t2ielikult t2idetud bussi ja mitu in on maha j22nud.
+
+echo
+# Kysib sisendit.
+read -p "Mitu reisijat on grupis? " reisijaid
+read -p "Mitu kohta on bussis? " kohti
+
+
+# Kui reisijate arv on v2iksem kui kohtade arv.
+if [ $reisijaid -lt $kohti ]
+then
+  yle=$(($kohti - $reisijaid))
+  echo "Koik mahuvad peale. Vabaks j22b" $yle "kohta."
+# Kui reisijate arv on vordne kohtade arvuga.
+elif [ $reisijaid -eq $kohti ]
+then
+  echo "T2idetud on 1 buss, maha ei j22 keegi."
+# Kui reisijaid on rohkem kui kohti.
+else
+  maha=$(($reisijaid - $kohti))
+  echo "T2idetud on 1 buss, maha j22b" $maha "inimest."
+fi
+echo
