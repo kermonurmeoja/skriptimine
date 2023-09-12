@@ -1,0 +1,18 @@
+#!/bin/bash
+# Skript vastavalt k2surea sisendile v2ljastab, kas tegu on paaris voi paaritu arvuga.
+
+# Kontrollib, kas tegu on t2isarvuga.
+if [[ $1 =~ ^[0-9]+([.][0-9]+)?$ ]]
+then
+  jaak=$(($1%2)) # 0 korral paaris, 1 korral paaritu. 
+  if [ $jaak -eq 0 ]
+  then
+    # Kui on paarisarv.
+    echo "Arv $1 on paaris."
+  else
+    # Kui on paaritu arv.
+    echo "Arv $1 on paaritu."
+  fi
+else
+  echo "Kaivita see skript koos t2isarvuga, mille paarsust soovid kontrollida. Nt: ./paarsus 3"
+fi
