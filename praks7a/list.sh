@@ -1,7 +1,16 @@
 #!/bin/bash
-# Skripti v2ljastab, missugused failityybid on kaustas, kus hetkel oled.
+# Skripti v2ljastab, missugused failityybid on etteantud kaustas.
 
 echo
+# Kysib kataloogi nime
+read -p "Sisesta kataloogi nimi: " kataloog
+
+# kui sisestatud kataloog pole praegu tootav kataloog, liigume teise kataloogi
+if [ "$kataloog" != "$(pwd)" ]
+then
+  cd "$kataloog"
+fi
+
 # loon muutujad
 faile=0
 katalooge=0
@@ -33,5 +42,5 @@ do
   fi
 done
 
-echo "Selles kataloogis on $faile fail(i), $linke link(e), $katalooge kataloog(i)."
+echo "Kataloogis $kataloog on $faile fail(i), $linke link(e), $katalooge kataloog(i)."
 echo 
