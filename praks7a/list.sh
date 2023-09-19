@@ -23,16 +23,16 @@ do
   then
     continue
   else
-    # kas tegu on failiga
-    if [ -f $i ]
-    then
-      echo "$i: fail"
-      faile=$((faile+1))
     # kas tegu on lingiga
-    elif [ -L $i ]
+    if [ -L $i ]
     then
       echo "$i: link"
       linke=$((linke+1))
+    # kas tegu on failiga
+    elif [ -f $i ]
+    then
+      echo "$i: fail"
+      faile=$((faile+1))
     # kas tegu on kataloogiga
     elif [ -d $i ]
     then
